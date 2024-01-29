@@ -32,6 +32,7 @@ return {
         "cssls",
         "tailwindcss",
         "lua_ls",
+        "gopls",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -42,6 +43,11 @@ return {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
         "eslint_d", -- js linter
+        "goimports",
+        "gofumpt",
+        "gomodifytags",
+        "impl",
+        "delve",
       },
     })
   end,

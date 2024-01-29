@@ -4,16 +4,24 @@ This repository contains all sorts of .dotfiles to setup my developer experience
 
 ## Setup
 
-1. Install the following dependencies:
+1. Install the following non-neovim dependencies:
 
 ```sh
 command -v brew &> /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install --cask iterm2
 command -v nvm &> /dev/null || brew install nvm
 command -v stow &> /dev/null || brew install stow
+command -v git &> /dev/null || brew install git
+brew install ripgrep
+```
+
+Install [Golang](https://go.dev/doc/install)
+
+1. Install the following dependencies:
+
+```sh
+brew install --cask iterm2
 rm ~/.zshrc
 stow -t ~/ -d . .
-command -v git &> /dev/null || brew install git
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # The .zshrc file may get overwritten and moved to ~/.zshrc.pre-oh-my-zsh
 mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
 source ~/.zshrc
