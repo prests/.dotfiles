@@ -15,6 +15,8 @@ return {
 
     local keymap = vim.keymap -- for conciseness
 
+    vim.filetype.add({ extension = { templ = "templ" } })
+
     local opts = { noremap = true, silent = true }
     local on_attach = function(client, bufnr)
       opts.buffer = bufnr
@@ -33,7 +35,10 @@ return {
       keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
       opts.desc = "Show LSP type definitions"
-      keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+      keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, opts) -- show lsp type definitions
+
+      opts.desc = "Show LSP Diagnostics"
+      keymap.set("n", "gl", "<cmd><CR>", opts) -- show lsp diagnostics
 
       opts.desc = "See available code actions"
       keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
@@ -75,6 +80,7 @@ return {
     lspconfig["html"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "html", "templ" },
     })
 
     -- configure typescript server with plugin
@@ -159,6 +165,20 @@ return {
           semanticTokens = true,
         },
       },
+    })
+
+    -- configure templ server
+    lspconfig["templ"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = vim.lsp.buf.format })
+
+    -- configure htmx server
+    lspconfig["htmx"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "html", "templ" },
     })
   end,
 }

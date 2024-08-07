@@ -12,6 +12,7 @@ command -v nvm &> /dev/null || brew install nvm
 command -v stow &> /dev/null || brew install stow
 command -v git &> /dev/null || brew install git
 brew install ripgrep
+curl https://sh.rustup.rs -sSf | sh
 ```
 
 Install [Golang](https://go.dev/doc/install)
