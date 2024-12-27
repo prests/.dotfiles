@@ -45,7 +45,3 @@ end)
 keymap.set("n", "<leader>dgl", function()
   require("dap-go").debug_last()
 end)
-
-keymap.set("n", "<leader>dd", function()
-  vim.diagnostic.open_float(nil, { focusable = true })
-end, { desc = "Show diagnostics in a floating window" })

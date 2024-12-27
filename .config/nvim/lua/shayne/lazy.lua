@@ -11,22 +11,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup(
-  {
-    { import = "shayne.plugins"},
-    { import = "shayne.plugins.lsp" },
+require("lazy").setup({
+  { import = "shayne.plugins" },
+  { import = "shayne.plugins.lsp" },
+}, {
+  install = {
+    colorscheme = { "nordic" },
   },
-  {
-    install = {
-      colorscheme = { "nordic" },
-    },
-    checker = {
-      enabled = true,
-      notify = false,
-    },
-    change_detection = {
-      notify = false,
-    },
-  }
-)
-
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = false,
+  },
+})
