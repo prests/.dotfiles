@@ -3,8 +3,13 @@ shell-integration = zsh
 theme = nord
 background-blur-radius = 20
 window-theme = system
+macos-icon = custom-style
+macos-icon-frame = plastic
+macos-icon-ghost-color = 5E81AC
+macos-icon-screen-color = FFFF00
 
 quick-terminal-position = center
 quit-after-last-window-closed = true
+confirm-close-surface = false
 
 keybind = global:super+j=toggle_quick_terminal
