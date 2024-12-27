@@ -115,3 +115,13 @@ source $(brew --prefix nvm)/nvm.sh
 
 export PATH=$PATH:$HOME/go/bin
 
+# pnpm
+export PNPM_HOME="/Users/shaynepreston/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export XDG_CONFIG_HOME=$HOME/.config
+

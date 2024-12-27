@@ -1,0 +1,10 @@
+shell-integration = zsh
+
+theme = nord
+background-blur-radius = 20
+window-theme = system
+
+quick-terminal-position = center
+quit-after-last-window-closed = true
+
+keybind = global:super+j=toggle_quick_terminal

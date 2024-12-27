@@ -32,10 +32,17 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 source ~/.zshrc
 command -v nvim &> /dev/null || brew install neovim
-stow -t ~/ -d . .
 ```
 
 2. Customizing Iterm2
 
 - Set theme in `settings > profile > colors` and import preset from home directory
 - Set global keybinding to ⌘ + j in `settings > keys > hotkeys > create a dedicated hotkey window...`
+
+3. Apply Changes
+
+Run the following script from the root of the project (assuming repo is cloned to home directory):
+
+```sh
+stow -t ~/ -d . .
+```
