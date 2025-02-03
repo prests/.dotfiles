@@ -84,7 +84,7 @@ return {
     })
 
     -- configure typescript server with plugin
-    lspconfig["tsserver"].setup({
+    lspconfig["ts_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
@@ -179,6 +179,16 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "html", "templ" },
+    })
+
+    lspconfig["terraformls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["tflint"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
   end,
 }

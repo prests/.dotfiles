@@ -44,6 +44,7 @@ return {
           "gowork",
           "gosum",
           "templ",
+          "terraform",
         },
         incremental_selection = {
           enable = true,
