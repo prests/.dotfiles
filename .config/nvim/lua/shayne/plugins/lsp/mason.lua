@@ -27,7 +27,7 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "tsserver",
+        "ts_ls",
         "html",
         "cssls",
         "tailwindcss",
@@ -35,6 +35,8 @@ return {
         "gopls",
         "htmx",
         "templ",
+        "terraformls",
+        "tflint",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -50,6 +52,7 @@ return {
         "gomodifytags",
         "impl",
         "delve",
+        "hclfmt",
       },
     })
   end,
