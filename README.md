@@ -46,3 +46,17 @@ Run the following script from the root of the project (assuming repo is cloned t
 ```sh
 stow -t ~/ -d . .
 ```
+
+## Custom Commands
+
+### Clean Branches
+
+The `clean-branches` command will delete any local branches that have already been merged onto `main` or `master`. It comes with an optional `-d -m x` flag to also delete any branches older than `x` months.
+
+Example:
+
+```sh
+clean-branches # default delete command (will only delete branches merged directly onto main/master)
+
+clean-branches -d -m 2 # delete all branches merged onto main/master and any branch 2 months or older
+```
