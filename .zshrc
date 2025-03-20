@@ -125,3 +125,8 @@ esac
 
 export XDG_CONFIG_HOME=$HOME/.config
 
+# ____ CUSTOM COMMANDS ____
+case ":$PATH:" in
+  *":$HOME/custom-commands:"*) ;;
+  *) export PATH="$HOME/custom-commands:$PATH" ;;
+esac

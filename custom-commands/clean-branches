@@ -1,0 +1,74 @@
+#!/bin/bash
+
+# Exit immediately if a command fails
+set -e
+
+# Default value for the flag (false by default)
+delete_old_branches=false
+months=""
+ignore_branches=("main" "master")
+
+is_ignored_branch() {
+  local branch=$1
+  for ignore in "${ignore_branches[@]}"; do
+    if [[ "$branch" == "$ignore" ]]; then
+      return 0  # Branch is ignored
+    fi
+  done
+
+  return 1  # Branch is not ignored
+}
+
+# Parse flags
+while getopts "dm:" opt; do
+  case $opt in
+    d) delete_old_branches=true ;;  # Flag to delete old branches
+    m) months=$OPTARG ;;  # Set months to the argument passed with -m
+    *) echo "Usage: $0 [-d] [-m months]"; exit 1 ;;
+  esac
+done
+
+# Ensure months is provided if -d flag is set
+if $delete_old_branches && [ -z "$months" ]; then
+  echo "Error: You must specify the number of months with the -m flag when using -d."
+  exit 1
+fi
+
+# Deleting local branches merged into main
+echo "Deleting local branches merged into main..."
+git branch --merged main | grep -v "main" | grep -v "master" | while read branch; do
+  if ! is_ignored_branch "$branch"; then
+    echo "Deleting branch: $branch"
+    git branch -d "$branch"
+  fi
+done
+
+# Deleting local branches older than specified months if the flag is set
+if ! $delete_old_branches; then
+  exit 0
+fi
+
+echo "Deleting branches older than $months months..."
+# Get the current date in Unix timestamp format
+current_date=$(date +%s)
+
+# Loop over each branch, check its author date, and delete if older than the specified number of months
+git branch --format '%(refname:short) %(authordate:relative)' | \
+while read branch date; do
+  # Skip ignored branches
+  if is_ignored_branch "$branch"; then
+    continue
+  fi
+
+  # Convert the branch's author date to Unix timestamp
+  branch_date=$(git log -1 --format=%at "$branch")
+
+  # Calculate the difference in months between the current date and the branch's author date
+  month_diff=$(( (current_date - branch_date) / 2592000 ))
+
+  # Delete if older than the specified number of months
+  if [ "$month_diff" -ge "$months" ]; then
+    echo "Deleting branch: $branch (Age: $month_diff months)"
+    git branch -D "$branch"
+  fi
+done
