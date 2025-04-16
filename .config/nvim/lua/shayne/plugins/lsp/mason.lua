@@ -37,6 +37,8 @@ return {
         "templ",
         "terraformls",
         "tflint",
+        "phpstan",
+        "intelephense",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -53,6 +55,8 @@ return {
         "impl",
         "delve",
         "hclfmt",
+        "php-cs-fixer",
+        "phpstan",
       },
     })
   end,
