@@ -45,6 +45,7 @@ return {
           "gosum",
           "templ",
           "terraform",
+          "php",
         },
         incremental_selection = {
           enable = true,

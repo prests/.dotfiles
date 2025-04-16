@@ -87,24 +87,28 @@ return {
     lspconfig["ts_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "ts", "tsx", "json" },
     })
 
     -- configure css server
     lspconfig["cssls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "jsx", "tsx", "css", "scss" },
     })
 
     -- configure tailwindcss server
     lspconfig["tailwindcss"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "jsx", "tsx" },
     })
 
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "lua" },
       settings = { -- custom settings for lua
         Lua = {
           -- make the language server recognize "vim" global
@@ -171,6 +175,7 @@ return {
     lspconfig["templ"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "templ" },
     })
     vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = vim.lsp.buf.format })
 
@@ -184,11 +189,19 @@ return {
     lspconfig["terraformls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "tf" },
     })
 
     lspconfig["tflint"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "tf" },
+    })
+
+    lspconfig["intelephense"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "php" },
     })
   end,
 }
