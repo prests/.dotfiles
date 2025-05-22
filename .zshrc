@@ -132,3 +132,6 @@ case ":$PATH:" in
   *":$HOME/custom-commands:"*) ;;
   *) export PATH="$HOME/custom-commands:$PATH" ;;
 esac
+
+# DraftKings Work Related
+[ -d "$HOME/.dotnet/tools" ] && export PATH="$PATH:/Users/s.preston/.dotnet/tools"
