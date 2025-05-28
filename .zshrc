@@ -1,4 +1,5 @@
 export HOMEBREW_NO_AUTO_UPDATE=1
+export OPENAI_API_KEY=$(pass show openai-api-key)
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -125,8 +126,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-export XDG_CONFIG_HOME=$HOME/.config
-
 # ____ CUSTOM COMMANDS ____
 case ":$PATH:" in
   *":$HOME/custom-commands:"*) ;;
@@ -135,3 +134,5 @@ esac
 
 # DraftKings Work Related
 [ -d "$HOME/.dotnet/tools" ] && export PATH="$PATH:/Users/s.preston/.dotnet/tools"
+
+export PATH="$PATH:/Users/s.preston/.local/share/bob/nvim-bin"
