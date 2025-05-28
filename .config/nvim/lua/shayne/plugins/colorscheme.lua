@@ -1,13 +1,20 @@
 return {
-  'AlexvZyl/nordic.nvim',
+  "rmehri01/onenord.nvim",
   lazy = false,
   priority = 1000,
   config = function()
-      require 'nordic' .setup {
-        -- transparent_bg = true
-      }
+    require("onenord").setup({
+      borders = true,
+      fade_nc = false,
+      style = "dark", -- or "light"
+      disable = {
+        background = false,
+        cursorline = false,
+        end_of_buffer_lines = false,
+      },
+      custom_highlights = {}, -- You can override specific highlights here
+    })
 
-     require 'nordic' .load()
-  end
+    vim.cmd.colorscheme("onenord")
+  end,
 }
-

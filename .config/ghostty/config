@@ -1,6 +1,6 @@
 shell-integration = zsh
 
-theme = dark:nord,light:nord-light
+theme = onenord
 background-blur-radius = 20
 window-theme = system
 macos-icon = custom-style

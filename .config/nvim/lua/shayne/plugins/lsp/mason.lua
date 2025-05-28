@@ -37,7 +37,6 @@ return {
         "templ",
         "terraformls",
         "tflint",
-        "phpstan",
         "intelephense",
       },
       -- auto-install configured servers (with lspconfig)
