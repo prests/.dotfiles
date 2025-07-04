@@ -11,6 +11,7 @@ command -v brew &> /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubuse
 command -v nvm &> /dev/null || brew install nvm
 command -v stow &> /dev/null || brew install stow
 command -v git &> /dev/null || brew install git
+command -v plantuml &> /dev/null || brew install plantuml
 brew install ripgrep
 curl https://sh.rustup.rs -sSf | sh
 ```
@@ -34,12 +35,7 @@ source ~/.zshrc
 command -v nvim &> /dev/null || brew install neovim
 ```
 
-2. Customizing Iterm2
-
-- Set theme in `settings > profile > colors` and import preset from home directory
-- Set global keybinding to ⌘ + j in `settings > keys > hotkeys > create a dedicated hotkey window...`
-
-3. Apply Changes
+2. Apply Changes
 
 Run the following script from the root of the project (assuming repo is cloned to home directory):
 
