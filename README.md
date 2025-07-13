@@ -12,6 +12,8 @@ command -v nvm &> /dev/null || brew install nvm
 command -v stow &> /dev/null || brew install stow
 command -v git &> /dev/null || brew install git
 command -v plantuml &> /dev/null || brew install plantuml
+command -v opencode &> /dev/null || brew install opencode-ai/tap/opencode
+command -v pass &> /dev/null || brew install pass
 brew install ripgrep
 curl https://sh.rustup.rs -sSf | sh
 ```
@@ -56,3 +58,16 @@ clean-branches # default delete command (will only delete branches merged direct
 
 clean-branches -d -m 2 # delete all branches merged onto main/master and any branch 2 months or older
 ```
+
+## Secret Env Variables
+
+Below is a list of secret passwords you will need to set or update the `.zshrc` file to ignore them
+
+```sh
+pass insert <key> # Insert key's value as part of password
+pass show <key>
+pass edit <key>
+```
+
+- openai-api-key
+- anthropic-api-key

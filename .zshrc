@@ -2,6 +2,8 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export AWS_PROFILE=draftkingsdev
 export CLAUDE_CODE_USE_BEDROCK=1
 export OPENAI_API_KEY=$(pass show openai-api-key)
+export ANTHROPIC_API_KEY=$(pass show anthropic-api-key)
+
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -138,3 +140,6 @@ esac
 [ -d "$HOME/.dotnet/tools" ] && export PATH="$PATH:/Users/s.preston/.dotnet/tools"
 
 export PATH="$PATH:/Users/s.preston/.local/share/bob/nvim-bin"
+
+# VectorCode
+export PATH="/Users/shaynepreston/.local/bin:$PATH"
