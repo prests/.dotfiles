@@ -7,6 +7,7 @@ macos-icon = custom-style
 macos-icon-frame = plastic
 macos-icon-ghost-color = 5E81AC
 macos-icon-screen-color = FFFF00
+macos-option-as-alt = true
 
 quick-terminal-position = center
 quit-after-last-window-closed = true

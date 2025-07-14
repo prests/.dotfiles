@@ -14,6 +14,7 @@ command -v git &> /dev/null || brew install git
 command -v plantuml &> /dev/null || brew install plantuml
 command -v opencode &> /dev/null || brew install opencode-ai/tap/opencode
 command -v pass &> /dev/null || brew install pass
+command -v tmux &> /dev/null || brew install tmux
 brew install ripgrep
 curl https://sh.rustup.rs -sSf | sh
 ```

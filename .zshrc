@@ -114,6 +114,20 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Custom aliases
+alias oc="opencode"
+
+# Custom function to initialize nvim in tmux with optional project path
+wrm() {
+  if [ $# -eq 0 ]; then
+    # No arguments - open nvim in current directory
+    tmux new-session "nvim"
+  else
+    # Argument provided - cd to that path and open nvim
+    tmux new-session "cd "$1" && nvim"
+  fi
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
