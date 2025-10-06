@@ -1,8 +1,6 @@
 export HOMEBREW_NO_AUTO_UPDATE=1
 export AWS_PROFILE=draftkingsdev
-export CLAUDE_CODE_USE_BEDROCK=1
 export OPENAI_API_KEY=$(pass show openai-api-key)
-export ANTHROPIC_API_KEY=$(pass show anthropic-api-key)
 
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.

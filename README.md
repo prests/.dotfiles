@@ -24,7 +24,6 @@ Install [Golang](https://go.dev/doc/install)
 1. Install the following dependencies:
 
 ```sh
-brew install --cask iterm2
 rm ~/.zshrc
 stow -t ~/ -d . .
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # The .zshrc file may get overwritten and moved to ~/.zshrc.pre-oh-my-zsh

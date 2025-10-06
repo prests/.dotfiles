@@ -39,6 +39,8 @@ return {
           "terraformls",
           "tflint",
           "intelephense",
+          "jsonls",
+          "yamlls",
         },
         -- automatic_installation is removed in 2.0.0
         -- Use automatic_enable instead (enabled by default)
@@ -64,6 +66,8 @@ return {
         "terraformls",
         "tflint",
         "intelephense",
+        "jsonls",
+        "yamlls",
       }
 
       -- Configure each server

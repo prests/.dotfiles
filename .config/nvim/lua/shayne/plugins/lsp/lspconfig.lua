@@ -4,6 +4,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
+    "b0o/schemastore.nvim",
   },
   config = function()
     -- import lspconfig plugin
@@ -72,7 +73,7 @@ return {
     lspconfig["ts_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = { "ts", "tsx", "json" },
+      filetypes = { "ts", "tsx" },
     })
 
     -- configure css server
@@ -180,6 +181,35 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "php" },
+    })
+
+    -- configure json server with schemastore
+    lspconfig["jsonls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "json", "jsonc" },
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
+        },
+      },
+    })
+
+    -- configure yaml server with schemastore
+    lspconfig["yamlls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "yaml", "yml" },
+      settings = {
+        yaml = {
+          schemaStore = {
+            enable = false,
+            url = "",
+          },
+          schemas = require("schemastore").yaml.schemas(),
+        },
+      },
     })
   end,
 }

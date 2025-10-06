@@ -15,9 +15,6 @@ require("lazy").setup({
   { import = "shayne.plugins" },
   { import = "shayne.plugins.lsp" },
 }, {
-  install = {
-    colorscheme = { "nordic" },
-  },
   checker = {
     enabled = true,
     notify = false,
