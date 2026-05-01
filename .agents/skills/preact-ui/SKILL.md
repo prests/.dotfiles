@@ -32,9 +32,14 @@ src/components/
 
 ### Component Patterns
 
-- Prefer small, focused functional components composed together.
+- Prefer small, focused, reusable components composed together instead of large “god components” with too many responsibilities.
+- Keep components as close to functional programming style as practical (pure props in/render out, minimal side effects) so unit testing stays straightforward.
 - Use `preact/hooks` (`useState`, `useEffect`, `useRef`, `useCallback`) for local state and effects.
 - Lift state or use a shared store for cross-cutting state (avoid deep prop drilling).
+- Re-evaluate shareability during updates:
+  - Put components in a shared folder when they are generic and reusable outside the parent feature.
+  - Keep non-shareable child components colocated with the parent component.
+  - Not every component should be shared; decide intentionally whether a change makes a component generic enough to extract.
 
 **Separate data fetching from presentation** (container vs presentation components) to keep UI components testable and reusable.
 
