@@ -41,6 +41,7 @@ return {
           "intelephense",
           "jsonls",
           "yamlls",
+          "astro",
         },
         -- automatic_installation is removed in 2.0.0
         -- Use automatic_enable instead (enabled by default)
@@ -68,6 +69,7 @@ return {
         "intelephense",
         "jsonls",
         "yamlls",
+        "astro",
       }
 
       -- Configure each server

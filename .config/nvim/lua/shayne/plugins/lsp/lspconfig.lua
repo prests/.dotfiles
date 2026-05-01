@@ -16,7 +16,12 @@ return {
 
     local keymap = vim.keymap -- for conciseness
 
-    vim.filetype.add({ extension = { templ = "templ" } })
+    vim.filetype.add({
+      extension = {
+        templ = "templ",
+        astro = "astro",
+      },
+    })
 
     local opts = { noremap = true, silent = true }
     local on_attach = function(client, bufnr)
@@ -208,6 +213,18 @@ return {
             url = "",
           },
           schemas = require("schemastore").yaml.schemas(),
+        },
+      },
+    })
+
+    -- configure astro server
+    lspconfig["astro"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "astro" },
+      init_options = {
+        typescript = {
+          tsdk = vim.fn.expand("~/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript/lib"),
         },
       },
     })

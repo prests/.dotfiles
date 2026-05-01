@@ -46,6 +46,7 @@ return {
           "templ",
           "terraform",
           "php",
+          "astro",
         },
         incremental_selection = {
           enable = true,
