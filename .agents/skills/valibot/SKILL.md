@@ -81,7 +81,7 @@ const Schema = v.optional(v.string(), "hello");
 ## Installation
 
 ```bash
-npm install valibot     # npm
+pnpm add valibot     # pnpm
 yarn add valibot        # yarn
 pnpm add valibot        # pnpm
 bun add valibot         # bun

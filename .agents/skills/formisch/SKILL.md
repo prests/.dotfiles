@@ -44,18 +44,18 @@ Formisch is a schema-based, headless form library that works across multiple fra
 ### 1. Install Valibot (peer dependency)
 
 ```bash
-npm install valibot
+pnpm add valibot
 ```
 
 ### 2. Install Formisch for your framework
 
 ```bash
-npm install @formisch/react   # React
-npm install @formisch/vue     # Vue
-npm install @formisch/solid   # SolidJS
-npm install @formisch/preact  # Preact
-npm install @formisch/svelte  # Svelte
-npm install @formisch/qwik    # Qwik
+pnpm add @formisch/react   # React
+pnpm add @formisch/vue     # Vue
+pnpm add @formisch/solid   # SolidJS
+pnpm add @formisch/preact  # Preact
+pnpm add @formisch/svelte  # Svelte
+pnpm add @formisch/qwik    # Qwik
 ```
 
 ## Core Concepts
