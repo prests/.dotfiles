@@ -1,0 +1,9 @@
+tools:
+  - name: pi
+    skillsDir: ~/.pi/agent/skills/swamp
+    instructionsFile: AGENTS.md
+    instructionsMode: shared
+    skillReferenceStyle: path
+    gitignoreEntries: |-
+      # Pi skills (managed by swamp)
+      ~/.pi/agent/skills/swamp/

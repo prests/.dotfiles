@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+scope="${UI_VALIDATION_ROOT:-$PWD}:${PI_SESSION_ID:-default}"
+session="ui-$(printf '%s' "$scope" | shasum -a 256 | cut -c1-16)"
+
+exec agent-browser --session "$session" "$@"

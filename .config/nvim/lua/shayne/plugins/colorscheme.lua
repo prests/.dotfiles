@@ -3,32 +3,6 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    -- Function to detect macOS system theme
-    local function get_system_theme()
-      -- Helper function to read defaults
-      local function read_default(key)
-        local handle = io.popen("defaults read -g " .. key .. " 2>/dev/null")
-        if handle then
-          local result = handle:read("*a"):gsub("%s+", "")
-          handle:close()
-          return result
-        end
-        return ""
-      end
-
-      local auto_switch = read_default("AppleInterfaceStyleSwitchesAutomatically") == "1"
-      local is_dark_style = read_default("AppleInterfaceStyle") == "Dark"
-      local style_exists = read_default("AppleInterfaceStyle") ~= ""
-
-      if auto_switch then
-        return style_exists and "light" or "dark"
-      else
-        return style_exists and "dark" or "light"
-      end
-    end
-
-    local system_theme = get_system_theme()
-
     local colors = require("onenord.colors").load()
 
     require("onenord").setup({

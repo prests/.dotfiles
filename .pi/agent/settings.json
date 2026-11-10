@@ -1,0 +1,24 @@
+{
+  "lastChangelogVersion": "1.5.1",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.6-terra",
+  "defaultThinkingLevel": "medium",
+  "packages": [
+    "npm:pi-web-access",
+    "npm:pi-context-view",
+    "npm:@ff-labs/pi-fff",
+    "npm:pi-subagents",
+    "npm:@dietrichgebert/ponytail",
+    "npm:@narumitw/pi-goal",
+    "npm:@plannotator/pi-extension",
+    "npm:@quintinshaw/pi-dynamic-workflows"
+  ],
+  "theme": "dark",
+  "hideThinkingBlock": true,
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0",
+    "{\"source\":\"npm:pi-context-view\",\"scope\":\"user\"}": "0.8.3",
+    "{\"source\":\"npm:pi-subagents\",\"scope\":\"user\"}": "0.87.0",
+    "{\"source\":\"npm:@narumitw/pi-goal\",\"scope\":\"user\"}": "0.55.0"
+  }
+}
