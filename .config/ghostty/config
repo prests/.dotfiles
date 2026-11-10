@@ -1,7 +1,9 @@
 shell-integration = zsh
 
 theme = onenord
-background-blur-radius = 20
+background-opacity = 0.9
+background-opacity-cells = true
+background-blur = 20
 window-theme = system
 macos-icon = custom-style
 macos-icon-frame = plastic

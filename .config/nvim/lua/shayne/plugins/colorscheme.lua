@@ -34,7 +34,7 @@ return {
     require("onenord").setup({
       borders = true,
       fade_nc = true,
-      style = "dark",
+      style = system_theme,
       disable = {
         cursorline = true,
         end_of_buffer_lines = false,

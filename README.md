@@ -15,6 +15,8 @@ command -v plantuml &> /dev/null || brew install plantuml
 command -v opencode &> /dev/null || brew install opencode-ai/tap/opencode
 command -v pass &> /dev/null || brew install pass
 command -v tmux &> /dev/null || brew install tmux
+command -v herdr &> /dev/null || brew install herdr
+command -v mole &> /dev/null || brew install mole
 brew install ripgrep
 curl https://sh.rustup.rs -sSf | sh
 ```
@@ -44,6 +46,69 @@ Run the following script from the root of the project (assuming repo is cloned t
 ```sh
 stow -t ~/ -d . .
 ```
+
+## Herdr
+
+Herdr runs inside Ghostty; no Ghostty configuration is required. From a project directory, start it with `herdr`. Press `Ctrl-b q` (or close the Ghostty window) to detach while work continues, then run `herdr` again to reattach.
+
+Homebrew manages updates: run `brew upgrade herdr`, not `herdr update`.
+
+## Pi
+
+Pi configuration lives in `.pi/agent/` and is activated by `.zshrc` through `PI_CODING_AGENT_DIR`. Preferences and package declarations are tracked; credentials and generated package/session data are ignored.
+
+On a new machine:
+
+```sh
+git clone <repo-url> ~/.dotfiles
+cd ~/.dotfiles
+stow -t ~/ -d . .
+# Install Pi separately, then start it and run /login
+pi
+
+# Install the configured packages on this machine
+for package in \
+  npm:pi-web-access \
+  npm:pi-context-view \
+  npm:@ff-labs/pi-fff \
+  npm:pi-subagents \
+  npm:@dietrichgebert/ponytail \
+  npm:@narumitw/pi-goal \
+  npm:@plannotator/pi-extension \
+  npm:@quintinshaw/pi-dynamic-workflows
+do
+  pi install "$package"
+done
+```
+
+Verify the active config with:
+
+```sh
+printf '%s\n' "$PI_CODING_AGENT_DIR"
+pi list
+```
+
+### Figma MCP
+
+Pi's built-in MCP support connects to Figma Desktop's local server:
+
+```json
+{
+  "mcpServers": {
+    "figma-desktop": {
+      "url": "http://127.0.0.1:3845/mcp"
+    }
+  }
+}
+```
+
+Enable the local MCP server in Figma Desktop before starting Pi. Verify it with:
+
+```sh
+pi mcp list
+```
+
+In an interactive session, use `/mcp` to inspect the server and its tools. MCP server names must contain only letters, digits, `_`, or `-`.
 
 ## Custom Commands
 

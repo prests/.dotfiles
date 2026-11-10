@@ -1,5 +1,5 @@
 export HOMEBREW_NO_AUTO_UPDATE=1
-export ZAI_API_KEY=$(pass show zai-api-key)
+export PI_CODING_AGENT_DIR="$HOME/.dotfiles/.pi/agent"
 
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
